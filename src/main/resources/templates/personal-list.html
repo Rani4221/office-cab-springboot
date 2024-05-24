@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--    <meta charset="UTF-8">-->
+    <title>Lists</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
+
+td a.btn {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+td a.btn:hover {
+    background-color: #0056b3;
+}
+
+    /* Style the search form container */
+    form {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Style the input field */
+    input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        outline: none;
+        width: 300px;
+    }
+
+    /* Style the search button */
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Hover effect for the search button */
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Placeholder text style */
+    ::-webkit-input-placeholder {
+        color: #999;
+    }
+    :-moz-placeholder {
+        color: #999;
+    }
+    ::-moz-placeholder {
+        color: #999;
+    }
+    :-ms-input-placeholder {
+        color: #999;
+    }
+</style>
+
+<body>
+<h1>List</h1>
+<form action="/admin/personal-list" method="get">
+<!--    <input type="text" name="search" placeholder="Search by Name or Email">-->
+<!--    <button type="submit">Search</button>-->
+</form>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Contact Number</th>
+        <th>PickUp Address</th>
+        <th>Drop Address</th>
+        <th>Time</th>
+        <th>Cab Number</th>
+    </tr>
+    <tr th:each="officeCabLists : ${userCabs}">
+        <td th:text="${officeCabLists.id}"></td>
+        <td th:text="${officeCabLists.name}"></td>
+        <td th:text="${officeCabLists.emailId}"></td>
+        <td th:text="${officeCabLists.contactNumber}"></td>
+        <td th:text="${officeCabLists.pickupAddress}"></td>
+        <td th:text="${officeCabLists.dropAddress}"></td>
+        <td th:text="${officeCabLists.time}"></td>
+        <td th:text="${officeCabLists.cabNumber}"></td>
+    </tr>
+</table>
+<script>
+    const searchInput = document.querySelector('input[name="search"]');
+    searchInput.addEventListener('input', function () {
+        const searchValue = searchInput.value;
+        });
+</script>
+</body>
+</html>

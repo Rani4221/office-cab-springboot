@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booking Cab</title>
+</head>
+<style>
+    .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #007bff;
+}
+
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<body>
+<div class="container">
+    <h2> Update Your Details</h2>
+    <form action="/user/update/{id}" method="post" th:object="${officeCab}">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text"  th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="email"  th:field="*{emailId}"  required>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text"  th:field="*{contactNumber}" required>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text"  th:field="*{contactNumber}" required>
+        </div>
+        <div class="form-group">
+            <label for="pickupAddress">Pickup Address:</label>
+            <select th:field="*{pickupAddress}" required>
+                <option value="">Select PickUp Location</option>
+                <option value="BTM Layout">BTM Layout</option>
+                <option value="HSR Layout">HSR Layout</option>
+                <option value="Agara">Agara</option>
+                <option value="Marathali">Marathali</option>
+                <option value="Whitefield">Whitefield</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dropAddress">Drop Address:</label>
+            <select  th:field="*{dropAddress}" required>
+                <option value="">Select Drop Location</option>
+                <option value="Sarjapur Social">Sarjapur Social</option>
+                <option value="BTM Layout">BTM Layout</option>
+                <option value="Marathali">Marathali</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="time"  th:field="*{time}" required>
+        </div>
+        <div class="form-group">
+            <label for="cabNumber">Cab Number:</label>
+            <select  th:field="*{cabNumber}" required>
+                <option value="">Select a Cab Number</option>
+                <option value="Cab 1">Cab 1</option>
+                <option value="Cab 2">Cab 2</option>
+                <option value="Cab 3">Cab 3</option>
+                <option value="Cab 4">Cab 4</option>
+                <option value="Cab 5">Cab 5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+

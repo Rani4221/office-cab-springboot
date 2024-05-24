@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+
+  <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffcc00, #ff6633); /* Adjust the colors as needed */
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .register-button,
+        .login-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration:none;
+        }
+
+        .register-button {
+            background-color: #4CAF50; /* Green color, adjust as needed */
+        }
+
+        .login-button {
+            background-color: #008CBA; /* Blue color, adjust as needed */
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to Our Organization!</h1>
+
+<div class="button-container">
+  <a th:href="@{/user/register}" class="register-button">Register</a>
+  <a th:href="@{/admin/personal-list}" class="login-button">List</a>
+</div>
+<h3>Kindly register for office cab</h3>
+</body>
+</html>
